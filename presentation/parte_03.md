@@ -49,4 +49,4 @@ volumes:
 - Com o Painel aberto do Sonarqube, vamos criar um novo projeto clicando em [Create new project](http://localhost:9001/projects/create).
 - Uma `Project Key` e um `Display Name` podem ser adicionados. Seguindo nosso padrão, vamos por `nestjs`e `NestJs` respectivamente.
 - Aparecerá uma opção para gerar um token. Daremos o nome desse token de `nestjs`. Clique em `Generate`
-- Com o token criado, salve ele por enquanto. Esse token nao é mostrado por uma segunda vez. `nestjs: 8dcecdb8f2388f8c41d634d715e858cf74414635`
+- Com o token criado, salve ele por enquanto. Esse token nao é mostrado por uma segunda vez.

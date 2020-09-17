@@ -1,6 +1,4 @@
-FROM node:13.8-alpine
-
-RUN apk update && apk add bash
+FROM node:13
 
 RUN mkdir -p /home/node/app/node_modules
 
