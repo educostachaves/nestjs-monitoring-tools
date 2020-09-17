@@ -51,6 +51,51 @@ services:
     networks:
       - mynet
 
+  redis:
+    command: redis-server --port 6379
+    image: redis
+    environment:
+      - REDIS_DATA_DIR=/data/redis
+    ports:
+      - "6379:6379"
+    networks:
+      - mynet
+
+  sentry:
+    container_name: sentry
+    image: sentry
+    depends_on:
+      - redis
+      - postgres
+    ports:
+      - 9000:9000
+    env_file:
+      - ./.env
+    networks:
+      - mynet
+
+  cron:
+    image: sentry
+    depends_on:
+      - redis
+      - postgres
+    command: "sentry run cron"
+    env_file:
+      - ./.env
+    networks:
+      - mynet
+
+  worker:
+    image: sentry
+    depends_on:
+      - redis
+      - postgres
+    command: "sentry run worker"
+    env_file:
+      - ./.env
+    networks:
+      - mynet
+
 volumes:
   db-data:
 
