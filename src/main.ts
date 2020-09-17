@@ -1,6 +1,7 @@
 import { NestFactory } from '@nestjs/core';
 import { SwaggerModule, DocumentBuilder } from '@nestjs/swagger';
 import { FastifyAdapter, NestFastifyApplication } from '@nestjs/platform-fastify';
+import * as Sentry from '@sentry/node';
 import * as helmet from 'helmet';
 import { AppModule } from './app.module';
 
@@ -18,6 +19,10 @@ async function bootstrap() {
     .build();
   const document = SwaggerModule.createDocument(app, options);
   SwaggerModule.setup('docs', app, document);
+
+  Sentry.init({
+    dsn: process.env.APP_SENTRY_DSN,
+  });
 
   await app.listen(port, '0.0.0.0');
 }
