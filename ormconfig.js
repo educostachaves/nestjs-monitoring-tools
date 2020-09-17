@@ -20,6 +20,7 @@ function TypeOrmConfig() {
     password,
     entities: [__dirname + '/src/**/*.entity.ts'],
     migrations: [migrationsDir + '/**/*.ts'],
+    synchronize: true,
     dropSchema: false,
     logging: true,
     autoSchemaSync: true,
@@ -27,7 +28,7 @@ function TypeOrmConfig() {
     cli: {
       migrationsDir,
     },
-  }
+  };
 }
 
 module.exports = TypeOrmConfig();

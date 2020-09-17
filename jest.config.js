@@ -1,15 +1,19 @@
 module.exports = {
+  verbose: true,
   moduleFileExtensions: [
     "js",
     "json",
-    "ts"
+    "ts",
   ],
+  testPathIgnorePatterns: ['<rootDir>/(build|config|node_modules)/'],
   transform: {
-    "^.+\\.(t|j)s$": "ts-jest"
+    "^.+\\.(t|j)s$": "ts-jest",
   },
+  resetMocks: false,
   rootDir: "src",
   testRegex: ".spec.ts$",
   coverageDirectory: "../coverage",
   testEnvironment: "node",
-  setupFilesAfterEnv: ["../test/config/jest.setup.js"]
+  testResultsProcessor: 'jest-sonar-reporter',
+  setupFilesAfterEnv: ["../test/config/jest.setup.js"],
 };

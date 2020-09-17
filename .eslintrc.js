@@ -4,11 +4,15 @@ module.exports = {
     project: 'tsconfig.json',
     sourceType: 'module',
   },
-  plugins: ['@typescript-eslint/eslint-plugin', 'nestjs'],
+  plugins: [
+    '@typescript-eslint/eslint-plugin',
+    'sonarjs',
+    'nestjs'],
   extends: [
     'plugin:@typescript-eslint/eslint-recommended',
     'plugin:@typescript-eslint/recommended',
     'plugin:nestjs/recommended',
+    'plugin:sonarjs/recommended',
     'prettier',
     'prettier/@typescript-eslint',
   ],
